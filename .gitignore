@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom ignore
+*.jpg
+.Results/
+ModelSummary.txt
+/Training/*
+Tests/
+testmain.py

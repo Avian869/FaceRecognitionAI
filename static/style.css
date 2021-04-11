@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.card {
+    background-color: aquamarine;
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
