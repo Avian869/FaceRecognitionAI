@@ -4,9 +4,10 @@ from keras.preprocessing import image
 import cv2
 import numpy as np
 
-def GetEmotion(face):
+def GetEmotion(imgpath):
     classifier = load_model('EmotionDetectionModel.h5')
     class_labels=['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
+    face = cv2.imread('static\\{0}'.format(imgpath))
     gray=cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
     roi_gray=cv2.resize(gray,(48,48),interpolation=cv2.INTER_AREA)
     roi=roi_gray.astype('float')/255.0
