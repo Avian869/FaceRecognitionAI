@@ -1,13 +1,13 @@
 {% extends 'layout.html'%}
 
-{% block content %}
+{% block title %}
 <h1>Results</h1>
-{% for row in data %}
-    {{row[0]}}
-    <ul>
-        {% for element in row[1:] %}
-            <li>{{element|join(', ')}}<li>
-        {% endfor %}
-    </ul>
+{% endblock title %}
+
+{% block content %}
+{% for image in images %}
+    <!-- <img src={{element}}/> -->
+    <img src="{{ image.src }}" data-src="{{ image.src }}" />
+    <b>{{image.emotion}}</b>
 {% endfor %}
 {% endblock content %}
