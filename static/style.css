@@ -1,13 +1,77 @@
+*{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 body{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    /* background-image: url('..\\static\\background.jpg'); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
-.card {
-    background-color: aquamarine;
-    width: 60%;
+#card {
+    background-color: #93329e;
+    padding: 40px;
+    border-radius: 40px;
+    height: 300px;
+
+}
+nav {
+    background-color: #440a67;
+    height: 94px;
+    border-radius: 0px !important;
+}
+p {
+    color: #ffe3fe;
+}
+.Btn {
     padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 2px;
+    color: #440a67;
+    background-color: #ffffff00;
+    border-radius: 30px;
+    border-width: 3px;
+    border-color: #440a67;
+    border-style: solid;
+    cursor: pointer;
+    padding: 15px 30px;
 }
+.Btn:hover {
+    background-color: #440a67;
+    color: #ffe3fe;
+}
+#custom-button {
+    padding: 10px;
+    color: #440a67;
+    background-color: #ffffff00;
+    border-radius: 30px;
+    border-width: 3px;
+    border-color: #440a67;
+    border-style: solid;
+    cursor: pointer;
+    padding: 15px 30px;
+}
+
+#custom-button:hover {
+    background-color: #440a67;
+    color: #ffe3fe;
+}
+
+#custom-text {
+    margin-left: 10px;
+    color: #440a67;
+}
+
+hr {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    }
