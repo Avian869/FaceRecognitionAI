@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, render_template, request, make_response
 from flask_restful import Resource, Api
-import json, codecs
 import main
 
 app = Flask(__name__, template_folder='templates')
