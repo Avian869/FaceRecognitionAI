@@ -33,3 +33,4 @@ api.add_resource(Camera, '/Camera/')
 
 if __name__ == '__main__':
     app.run(debug='true')
+    
