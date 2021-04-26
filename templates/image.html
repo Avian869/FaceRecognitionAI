@@ -1,0 +1,27 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+<h1 class="display-2" style="align-self: center;">File Upload</h1>
+<form method="POST" action="/Image/" enctype="multipart/form-data" style="align-self: center; padding-top: 50px;">
+    <input type="file" name="image_file" id="image_file" accept="image/*" style="display: none;">
+    <button type="button" id="custom-button"><b>Choose a file</b></button>
+    <span id="custom-text" style="padding-right: 15px;">No file chosen, yet.</span>
+    <script type="text/javascript">
+        const realFileBtn = document.getElementById("image_file");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+        customBtn.addEventListener("click", function() {
+          realFileBtn.click();
+        });
+        realFileBtn.addEventListener("change", function() {
+          if (realFileBtn.value) {
+            customTxt.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+          } else {
+            customTxt.innerHTML = "No file chosen, yet.";
+          }
+        });
+    </script>
+    <b><input type="submit" value="Upload image" class="Btn"></b>
+</form>
+{% endblock content %}

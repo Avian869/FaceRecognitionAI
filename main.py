@@ -1,6 +1,7 @@
 """Main module used to process image or camera stream"""
 import get_faces as fc
 import get_emotion
+import handle_camera as hc
 import make_json
 
 def process_image(image_path):
@@ -8,3 +9,6 @@ def process_image(image_path):
     face_array = fc.main(image_path)
     emotion_array = get_emotion.main(face_array)
     return make_json.main(face_array, emotion_array)
+
+def process_camera_stream():
+    yield hc.process_stream()
