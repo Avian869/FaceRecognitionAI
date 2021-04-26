@@ -17,20 +17,14 @@ class Image(Resource):
             results = main.process_image(data)
             headers = {'Content-Type': 'text/html', 'Cache-Control': 'no-store'}
             return make_response(render_template('results.html', images = results),200,headers)
-            #return render_template('index.html')
-            #return results
-        #return "No file selected :("
-
-    def get(self):
-        return("Worked")
 
 class Camera(Resource):
-    def get(self):
+    def post(self):
         return('WIP')
 
 api.add_resource(Image, '/Image/')
 api.add_resource(Camera, '/Camera/')
 
 if __name__ == '__main__':
-    app.run(debug='true')
+    app.run(host='127.0.0.1', port=5000, debug=True, threaded=True)
     
