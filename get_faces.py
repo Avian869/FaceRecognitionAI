@@ -4,23 +4,23 @@ from pathlib import Path
 import cv2
 import numpy
 
+casc_path = "Cascades\\data\\haarcascade_frontalface_alt2.xml"
+face_cascade = cv2.CascadeClassifier(casc_path)
+
 def find_faces(image):
     """Finds all faces in a given image and returns an image array with all faces"""
-    casc_path = "Cascades\\data\\haarcascade_frontalface_alt2.xml"
-    face_cascade = cv2.CascadeClassifier(casc_path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
     return faces
 
-def main(image_par):
-    """Finds all faces in image and returns all locations of saved faces"""
-    remove_results()
-    filestr = image_par.read()
-    npimg = numpy.fromstring(filestr, numpy.uint8)
+def draw_faces(image_par):
+    """Saves all individual faces to temporary directory in root folder"""
+    npimg = numpy.fromstring(image_par, numpy.uint8)
     image = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
     faces = find_faces(image)
-    face_array = save_faces(faces, image)
-    return face_array
+    for (x, y, w, h) in faces:
+        cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    return image, faces
 
 def save_faces(faces, image):
     """Saves all individual faces to temporary directory in root folder"""
@@ -44,3 +44,13 @@ def remove_results():
             os.remove(file)
         except OSError as exception:
             print("Error: %s : %s" % (file, exception.strerror))
+
+def main(image_par):
+    """Finds all faces in image and returns all locations of saved faces"""
+    remove_results()
+    filestr = image_par.read()
+    npimg = numpy.fromstring(filestr, numpy.uint8)
+    image = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
+    faces = find_faces(image)
+    face_array = save_faces(faces, image)
+    return face_array
