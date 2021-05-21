@@ -29,6 +29,6 @@ def process_stream():
 
 def write_to_image(image, faces, emotion_array, age_array, gender_array):
     index = 0
-    for (x, y, w, h) in faces:
+    for (x, y) in faces:
         text = gender_array[index] + age_array[index] + emotion_array[index]
         cv2.putText(image, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.3, cv2.BGR_COMMON['green'], 1.3)
